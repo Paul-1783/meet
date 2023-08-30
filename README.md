@@ -1,8 +1,25 @@
-# meet
+# meet app
 
 A serverless, progressive web application (PWA) with React using a
 test-driven development (TDD) technique. The application uses the Google
-Calendar API to fetch upcoming events.
+Calendar API to fetch upcoming events. Users select a city and the upcoming events
+in the chosen location will be shown as a list. Users have the possibility to request
+further details on events they are interested in.
+
+## Application of serverless functions in this project
+
+The Backend of the application will be written as FaaS with Node/Express.
+The cloud-service provider used to create these serverless functions is AWS Lambda.
+
+The app uses the protected Google Calendar API and accesses it by OAuth2 token authorization. When a user provides his credentials to log into a Google account, the authorization server authenticates him and authorizes him to access the events via the app - by granting a token to the app. After that, by providing with every request the received token, the app will get in return the list of events from the API. The process of obtaining the access token from the authorization server will be implemented as a serverless function, furthermore called “Oauth consumer“.
+
+This process in more detail:
+
+    • the “OAuth consumer“ (implemented as “FaaS“) attempts to access the authorization server via consumer key and consumer secret
+    • if the credentials are accepted, a consent screen to present to the user is requested
+    • if the user logs in and grants consent, the “OAuth consumer“ receives an authorization code.
+    • the “OAuth consumer“ requests (providing the authorization code) for the actual access token
+    • having received the token, the serverless functions can carry out user requests to the Google API
 
 ## Project Features and Scenarios
 

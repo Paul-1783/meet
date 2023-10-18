@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-const NumberOfEvents = ({ events }) => {
-  let [queryValue, setQueryValue] = useState("32");
+const NumberOfEvents = () => {
+  let [queryValue, setQueryValue] = useState(32);
   const handleNumberChanged = (event) => {
     let changedValue = event.target.value;
     if (changedValue < 32 || isNaN(changedValue) || changedValue > 64) {
@@ -12,6 +12,7 @@ const NumberOfEvents = ({ events }) => {
 
   return (
     <div id="number-of-events">
+      <label htmlFor="number-of-events-input">Number of Events: </label>
       <input
         type="text"
         value={queryValue}

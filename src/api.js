@@ -46,7 +46,7 @@ const getToken = async (code) => {
         encodeCode
     );
     if (!response.ok) {
-      throw new Error("Http error! status: ${response.status}");
+      throw new Error(`Http error! status: ${response.status}`);
     }
     const { access_token } = await response.json();
     access_token && localStorage.setItem("access_token", access_token);
@@ -84,7 +84,7 @@ export const getAccessToken = async () => {
   const accessToken = localStorage.getItem("access_token");
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
-  if (!accessToken || tokenCheck.console.error) {
+  if (!accessToken || tokenCheck.error) {
     await localStorage.removeItem("access_token");
     const searchParams = new URLSearchParams(window.location.search);
 

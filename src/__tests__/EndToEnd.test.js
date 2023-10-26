@@ -61,10 +61,10 @@ describe(" Filter Events By City", () => {
     expect(citySugggestions).toBeDefined();
   });
 
-  // test("User can select a city from the suggested list.", async () => {
-  //   await page.waitForSelector(".city");
-  //   await page.keyboard.type("Berlin");
-  //   const selectedSuggestion = await page.$eval(".city", (e) => e.value);
-  //   expect(selectedSuggestion).toBe("Berlin, Germany");
-  // });
+  test("User can select a city from the suggested list.", async () => {
+    await page.waitForSelector(".city");
+    await page.type(".city", "Berlin, Germany");
+    const selectedSuggestion = await page.$eval(".city", (e) => e.value);
+    expect(selectedSuggestion).toBe("Berlin, Germany");
+  });
 });

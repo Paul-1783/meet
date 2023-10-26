@@ -54,16 +54,16 @@ This process in more detail:
   so that I can see if if the respective event is interesting or not.
 
   Scenario 1. An event element is collapsed by default.
-  • Given the app has not been used yet;
-  • When the app gets started;
-  • Then the user shouldn‘t see that event
+  • Given the App has been rendered
+  • When all elements have been loaded
+  • Then the user shouldn‘t see the event details
   Scenario 2. User can expand an event to see details.
-  • Given the event hasn‘t been clicked yet or already been closed before;
+  • Given the event hasn‘t been clicked yet
   • When the user selects the event;
   • Then the user should see the details of the respective event.
   Scenario 3. User can collapse an event to hide details.
   • Given the event has already been selected by the user;
-  • When the user selects the event one time more;
+  • When the user clicks the hide button;
   • Then the events collapses.
 ```
 
@@ -73,12 +73,12 @@ This process in more detail:
 		so that I don‘t loose overview with all the possibilities.
 
     Scenario 1. When user hasn’t specified a number, 32 events are shown by default.
-    • Given the user hasn‘t specified that number and 32 events are shown as a list.
-    • When the user has entered a number;
-    • Then the number of indicated events gets shown
+    • Given the user hasn't entered a number
+    • When the evenlist has been loaded
+    • Then 32 events get shown
 	Scenario 2. User can change the number of events displayed.
-    • Given a number has already been entered or 32 events have been displayed.
-    • When the user enters a new number;
+    • Given the eventlist has been loaded
+    • When the user enters a new number
     • Then a changed number of events gets presented
 ```
 

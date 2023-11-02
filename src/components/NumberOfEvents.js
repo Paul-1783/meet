@@ -3,7 +3,6 @@ import { useState } from "react";
 const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
   const handleNumberChanged = (event) => {
     let changedValue = event.target.value;
-    console.log("changed value", typeof changedValue);
     let errorText;
     if (isNaN(changedValue) || changedValue <= 0) {
       errorText =

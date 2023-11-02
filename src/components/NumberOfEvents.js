@@ -1,12 +1,21 @@
 import { useState } from "react";
 
-const NumberOfEvents = ({ setCurrentNOE }) => {
+const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
   const handleNumberChanged = (event) => {
     let changedValue = event.target.value;
-    if (changedValue < 32 || isNaN(changedValue) || changedValue > 64) {
+    console.log("changed value", typeof changedValue);
+    let errorText;
+    if (isNaN(changedValue) || changedValue <= 0) {
+      errorText =
+        "The value you entered can't be processed: It's either not a number or smaller than 0.";
+    } else if (changedValue > 64) {
       setCurrentNOE(Number(32));
+      errorText = "";
+    } else {
+      setCurrentNOE(Number(changedValue));
+      errorText = "";
     }
-    setCurrentNOE(Number(changedValue));
+    setErrorAlert(errorText);
   };
 
   return (

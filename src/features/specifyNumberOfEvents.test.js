@@ -44,13 +44,13 @@ defineFeature(feature, (test) => {
     given("the eventlist has been loaded", () => {});
     when("the user enters a new number", () => {
       let user = userEvent.setup();
-      user.type(NumberOfEventsBox, "{backspace}{backspace}10");
+      user.type(NumberOfEventsBox, "{backspace}{backspace}20");
     });
     then("a changed number of events gets presented", async () => {
       await waitFor(() => {
         const EventListItems = within(EventListDOM).queryAllByRole("listitem");
-        expect(EventListItems.length).toBe(10);
-        expect(NumberOfEventsBox.value).toBe("10");
+        expect(EventListItems.length).toBe(20);
+        expect(NumberOfEventsBox.value).toBe("20");
       });
     });
   });

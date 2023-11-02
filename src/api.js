@@ -1,6 +1,7 @@
 // src/api.js
 
 import mockData from "./mockdata";
+import NProgress from "nprogress";
 
 /* @param {*} events:
  * The following function should be in the “api.js” file.
@@ -61,7 +62,10 @@ const getToken = async (code) => {
  * This function will fetch the list of all events
  */
 export const getEvents = async () => {
+  NProgress.start();
+
   if (window.location.href.startsWith("http://localhost")) {
+    NProgress.done();
     return mockData;
   }
 
@@ -75,8 +79,12 @@ export const getEvents = async () => {
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
+      NProgress.done();
       return result.events;
-    } else return null;
+    } else {
+      NProgress.done();
+      return null;
+    }
   }
 };
 

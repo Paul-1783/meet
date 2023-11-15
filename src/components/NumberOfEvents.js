@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
   const handleNumberChanged = (event) => {
     let changedValue = event.target.value;

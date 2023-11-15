@@ -4,8 +4,12 @@ import NumberOfEvents from "./components/NumberOfEvents";
 import { useEffect, useState } from "react";
 import { extractLocations, getEvents } from "./api";
 import { InfoAlert, ErrorAlert, WarningAlert } from "./components/Alert";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import logo from "./meet-app-192.png";
 
 import "./App.css";
+import MeetTitle from "./components/heading-view/heading-view.jsx";
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -39,20 +43,37 @@ function App() {
 
   return (
     <div className="App">
-      <div className="alerts-container">
-        {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
-        {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
-        {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
-      </div>
-      <CitySearch
-        allLocations={allLocations}
-        setCurrentCity={setCurrentCity}
-        setInfoAlert={setInfoAlert}
-      />
-      <NumberOfEvents
-        setCurrentNOE={setCurrentNOE}
-        setErrorAlert={setErrorAlert}
-      />
+      <MeetTitle />
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container fluid>
+          <img
+            src={logo}
+            alt="meet-app-logo"
+            width="70"
+            height="55"
+            className="logo"
+          />
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <div className="alerts-container">
+              {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+              {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+              {warningAlert.length ? (
+                <WarningAlert text={warningAlert} />
+              ) : null}
+            </div>
+            <CitySearch
+              allLocations={allLocations}
+              setCurrentCity={setCurrentCity}
+              setInfoAlert={setInfoAlert}
+            />
+            <NumberOfEvents
+              setCurrentNOE={setCurrentNOE}
+              setErrorAlert={setErrorAlert}
+            />
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <EventList events={events} />
     </div>
   );

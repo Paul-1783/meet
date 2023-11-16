@@ -10,6 +10,7 @@ import logo from "./meet-app-192.png";
 
 import "./App.css";
 import MeetTitle from "./components/heading-view/heading-view.jsx";
+import CityEventsChart from "./components/CityEventsChart.js";
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -74,6 +75,7 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <CityEventsChart allLocations={allLocations} events={events} />
       <EventList events={events} />
     </div>
   );

@@ -17,7 +17,6 @@ info: strong orange (#F58A07);
 
 .App * {
   box-sizing: border-box;
-  /* background-color: #272932; */
 }
 
 ul {
@@ -136,4 +135,13 @@ input[type="number"] {
 
 #number_of_events {
   display: inline;
+}
+
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }

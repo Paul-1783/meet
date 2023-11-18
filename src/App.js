@@ -7,10 +7,11 @@ import { InfoAlert, ErrorAlert, WarningAlert } from "./components/Alert";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "./meet-app-192.png";
-
-import "./App.css";
 import MeetTitle from "./components/heading-view/heading-view.jsx";
 import CityEventsChart from "./components/CityEventsChart.js";
+import EventGenresChart from "./components/EventGenresChart.js";
+
+import "./App.css";
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -75,7 +76,10 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <CityEventsChart allLocations={allLocations} events={events} />
+      <div className="charts-container">
+        <EventGenresChart events={events} />
+        <CityEventsChart allLocations={allLocations} events={events} />
+      </div>
       <EventList events={events} />
     </div>
   );

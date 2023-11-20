@@ -6,6 +6,34 @@ Calendar API to fetch upcoming events. Users select a city and the upcoming even
 in the chosen location will be shown as a list. Users have the possibility to request
 further details on events they are interested in.
 
+## Features
+
+- Filter Events by City
+
+- Show/Hide Event Details
+
+- Specify Number of Events
+
+- Use the App When Offline
+
+- Add an App Shortcut to Smartphone
+
+- Display Charts Visualizing Event Details
+
+## Used technologies
+
+- React
+- React Recharts
+- Google OAUTH
+- AWS for website hosting
+- Jest
+- Pupeteer
+- Atatus
+
+## Live App:
+
+Github: https://paul-1783.github.io/meet/
+
 ## Application of serverless functions in this project
 
 The Backend of the application will be written as FaaS with Node/Express.
